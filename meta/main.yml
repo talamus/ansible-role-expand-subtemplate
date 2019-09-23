@@ -1,0 +1,11 @@
+galaxy_info:
+  role_name: expand-subtemplate
+  author: Tero Niemi
+  description: Expand variables into string based Ansible templates on demand.
+  license: MIT
+  min_ansible_version: 2.8
+
+  galaxy_tags:
+  - template
+  - subtemplate
+  - eval

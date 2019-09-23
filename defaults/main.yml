@@ -1,0 +1,11 @@
+#
+# Input:
+#   subtemplate (string)          - A simple template, like: 'Mary had a { adjective } { animal }.'
+#   subtemplate_vars (object)     - List of values that are going to be used in the expansion, like: { 'adjective': 'little', 'animal': 'lamb' }
+#
+# Output:
+#   expanded_subtemplate (string) - The expanded subtemplate: 'Mary had a little lamb.'
+#
+---
+subtemplate: ''
+subtemplate_vars: {}

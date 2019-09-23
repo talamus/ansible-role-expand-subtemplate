@@ -1,0 +1,20 @@
+#
+# Input:
+#   subtemplate (string)          - A simple template, like: 'Mary had a { adjective } { animal }.'
+#   subtemplate_vars (object)     - List of values that are going to be used in the expansion, like: { 'adjective': 'little', 'animal': 'lamb' }
+#
+# Output:
+#   expanded_subtemplate (string) - The expanded subtemplate: 'Mary had a little lamb.'
+#
+---
+
+- name: 'Expanding subtemplate "{{ subtemplate }}"'
+  set_fact:
+    expanded_subtemplate: |-
+      {% set temp = [ subtemplate ]                                                                 -%}
+      {% for var in subtemplate | regex_findall("({\s*(\w+)\s*})")                                  -%}
+      {%   if var[1] in subtemplate_vars                                                            -%}
+      {{     temp.append( temp[ (temp | length) - 1 ] | replace(var[0], subtemplate_vars[var[1]]) ) -}}
+      {%   endif                                                                                    -%}
+      {% endfor                                                                                     -%}
+      {{ temp[ (temp | length) - 1 ] }}
