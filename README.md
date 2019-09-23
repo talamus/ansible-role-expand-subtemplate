@@ -1,6 +1,6 @@
 # expand-subtemplate
 
-Expand variables into a simple string based template on demand.
+Ansible role for expanding variables in a simple string based template on demand.
 
 **License:** MIT
 **Author:** Tero Niemi (https://github.com/talamus)
